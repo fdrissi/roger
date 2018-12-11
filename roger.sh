@@ -4,7 +4,7 @@ apt-get install ssh -y >> script.log
 apt-get install vim -y >> script.log
 apt-get install apache2 -y >> script.log
 apt-get install iptables -y >> script.log
-apt-get install iptables-presistent -y >> script.log
+apt-get install iptables-persistent -y >> script.log
 apt-get install fail2ban -y >> script.log
 apt-get install postfix -y >> script.log
 cp /src/jail.local /etc/fail2ban/
