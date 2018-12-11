@@ -1,12 +1,12 @@
 #!/bin/bash
 
-apt-get install ssh >> script.log
-apt-get install vim >> script.log
-apt-get install apache2 >> script.log
-apt-get install iptables >> script.log
-apt-get install iptables-presistent >> script.log
-apt-get install fail2ban >> script.log
-apt-get install postfix >> script.log
+apt-get install ssh -y >> script.log
+apt-get install vim -y >> script.log
+apt-get install apache2 -y >> script.log
+apt-get install iptables -y >> script.log
+apt-get install iptables-presistent -y >> script.log
+apt-get install fail2ban -y >> script.log
+apt-get install postfix -y >> script.log
 cp /src/jail.local /etc/fail2ban/
 cat /src/rules.v4 > /etc/iptables/rules.v4
 cp /src/sasl_passwd /etc/postfix/sasl/
