@@ -1,4 +1,4 @@
-ptables-save v1.6.0 on Sat Dec  8 20:57:11 2018
+#iptables-save v1.6.0 on Sat Dec  8 20:57:11 2018
 *filter
 :INPUT DROP [2:144]
 :FORWARD ACCEPT [0:0]
