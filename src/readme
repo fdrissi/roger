@@ -1,0 +1,11 @@
+change in main.cf:
+myhostname = SkyLine.roger
+to your hostname: cat /etc/hosts
+
+------------------------------------
+
+change root email in aliases file
+
+------------------------------------
+
+

@@ -1,0 +1,26 @@
+ptables-save v1.6.0 on Sat Dec  8 20:57:11 2018
+*filter
+:INPUT DROP [2:144]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [111:12200]
+:f2b-sshd - [0:0]
+:f2b-sshd-ddos - [0:0]
+-A INPUT -p tcp -m multiport --dports 2222 -j f2b-sshd-ddos
+-A INPUT -p tcp -m multiport --dports 2222 -j f2b-sshd
+-A INPUT -m recent --rcheck --seconds 120 --name portscan --mask 255.255.255.255 --rsource -j DROP
+-A INPUT -p tcp -m multiport --dports 2222 -j f2b-sshd-ddos
+-A INPUT -p tcp -m multiport --dports 2222 -j f2b-sshd
+-A INPUT -p tcp -m tcp --dport 80 -m connlimit --connlimit-above 20 --connlimit-mask 32 --connlimit-saddr -j DROP
+-A INPUT -i lo -j ACCEPT
+-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+-A INPUT -p tcp -m tcp --dport 443 -j ACCEPT
+-A INPUT -p tcp -m tcp --dport 2222 -j ACCEPT
+-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -p tcp -m tcp --dport 139 -m recent --set --name portscan --mask 255.255.255.255 --rsource -j LOG --log-prefix "portscan:"
+-A INPUT -p tcp -m tcp --dport 139 -m recent --set --name portscan --mask 255.255.255.255 --rsource -j DROP
+-A f2b-sshd -j RETURN
+-A f2b-sshd -j RETURN
+-A f2b-sshd-ddos -j RETURN
+-A f2b-sshd-ddos -j RETURN
+COMMIT
+# Completed on Sat Dec  8 20:57:11 2018
