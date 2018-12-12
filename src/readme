@@ -1,11 +1,27 @@
+Install vim, apache2, iptables, iptables-persistent, fail2ban, postfix
+
+set static local ip address for your server.
+configure your firewall (iptables) to protect your webserver from DOS attacks, ssh brute froce, ports scanning and accept only connections via ssh, http, https.
+configure your ssh to accept only authentifications using RSA keys, and change the default port to 2222.
+configure postfix to send emails using gmail smtp.
+
+------------------------------------
+
 change in main.cf:
 myhostname = SkyLine.roger
 to your hostname: cat /etc/hosts
 
 ------------------------------------
 
-change root email in aliases file
+change root email:
+src/aliases
 
 ------------------------------------
 
+change configuration of your local network:
+src/interfaces
 
+------------------------------------
+
+add your gmail and password:
+src/sasl_passwd
