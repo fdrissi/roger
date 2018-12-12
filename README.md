@@ -1,17 +1,8 @@
-# roger
-do almost Roger SkyLine project
+# Roger SkyLine /16
 
+Install vim, apache2, iptables, iptables-persistent, fail2ban, postfix
 
-
-Change in src/main.cf:
-myhostname = SkyLine.roger
-to your hostname: (cat /etc/hosts)
-
-------------------------------------
-
-change root email in src/aliases file
-
-------------------------------------
-
-src/sasl_passwd:
-add your gmail and password, to use gmail smtp to send via Postfix
+set static local ip address for your server.
+configure your firewall (iptables) to protect your webserver from DOS attacks, ssh brute froce, ports scanning and accept only connections via ssh, http, https.
+configure your ssh to accept only authentifications using RSA keys, and change the default port to 2222.
+configure postfix to send emails using gmail smtp.
